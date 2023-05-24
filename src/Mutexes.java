@@ -78,7 +78,7 @@ Queue<Object> BlockedQueueOutput = new LinkedList<>();
             BlockedQueueFile.add(P);
         }
         else if (BlockedQueueFile.size()>0){
-            BlockedQueueFile.remove();
+            BlockedQueueFile.remove(P);
             try {
                 semWaitFile();
             } catch (InterruptedException e) {
@@ -113,7 +113,7 @@ Queue<Object> BlockedQueueOutput = new LinkedList<>();
         if (InputUsed > 0) {
             BlockedQueueInput.add(P);
         } else if (BlockedQueueInput.size() > 0) {
-            BlockedQueueInput.remove();
+            BlockedQueueInput.remove(P);
             try {
                 semWaitFile();
             } catch (InterruptedException e) {
@@ -146,7 +146,7 @@ Queue<Object> BlockedQueueOutput = new LinkedList<>();
             if (OutputUsed > 0) {
                 BlockedQueueOutput.add(P);
             } else if (BlockedQueueOutput.size() > 0) {
-                BlockedQueueOutput.remove();
+                BlockedQueueOutput.remove(P);
                 try {
                     semWaitFile();
                 } catch (InterruptedException e) {
